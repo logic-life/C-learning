@@ -17,4 +17,5 @@
 ## 文字常量区：常年字符串存放在这里，程序结束后，由系统释放。
 
 ## 程序代码区：存放函数的二进制代码。
-![运行结果]{https://github.com/logic-life/C-learning/blob/main/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/2021021222:21:12.png}
+
+![image](https://github.com/logic-life/C-learning/blob/main/ImageFile/2021021222:21:12.png)
