@@ -10,7 +10,7 @@
 |unsigned int|4个字节|4个字节|
 |float|4个字节|4个字节|
 |double|8个字节|8个字节|
-|<font color=red>long|4个字节|8个字节|
+|<font color=red>long</font>|4个字节|8个字节|
 |<font color=red>long long</font> |8个字节|8个字节|
 |unsigned long|4个字节|8个字节|
 ____________
