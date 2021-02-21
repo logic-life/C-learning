@@ -13,6 +13,7 @@
 |<font color=red>long</font>|4个字节|8个字节|
 |<font color=red>long long</font> |8个字节|8个字节|
 |unsigned long|4个字节|8个字节|
+____________
 ps:位电子计算机中最小的数据单位
    字节：8个二进制位构成一个字节
    字：由若干个字节构成。
