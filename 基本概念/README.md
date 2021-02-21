@@ -4,14 +4,14 @@
 |数据类型|32位编译器|64位编译器|
 |-------|--------|---------|
 |char|1个字节|1个字节|
-|<char*|4个字节|8个字节|
+|<font color=red>char*</font>|4个字节|8个字节|
 |short int|2个字节|2个字节|
 |int|4个字节|4个字节|
 |unsigned int|4个字节|4个字节|
 |float|4个字节|4个字节|
 |double|8个字节|8个字节|
-|long|4个字节|8个字节|
-|long long|8个字节|8个字节|
+|<font color=red>long</font>|4个字节|8个字节|
+|<font color=red>long long</font> |8个字节|8个字节|
 |unsigned long|4个字节|8个字节|
 ps:位电子计算机中最小的数据单位
    字节：8个二进制位构成一个字节
