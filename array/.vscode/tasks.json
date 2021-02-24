@@ -3,7 +3,7 @@
         {
             "type": "shell",
             "label": "g++ build active file",
-            "command": "/usr/bin/g++-7",//调用的编译链接器
+            "command": "/usr/bin/g++-10",//调用的编译链接器
             "args": [
                 "-g",
                 "${file}",
