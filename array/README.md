@@ -39,3 +39,12 @@ int b[] = {1, 2, 3, 4, 5, 6};
 ```
 
 ![image](https://github.com/logic-life/C-learning/blob/main/ImageFile/reference_and_array.png)
+
+# 指针数组
+**可以使用指向字符的指针数组存储字符串列表**
+```
+const char *aPointerArray[MAX] = {"zhangsan", "lisi", "zhaowu", "hanliu"};
+    for (int i = 0; i < MAX; i++)
+        std::cout << aPointerArray[i] << std::endl;
+```
+[指向字符的指针数组](./pointertoarray.cpp)
