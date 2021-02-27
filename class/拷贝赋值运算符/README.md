@@ -8,18 +8,17 @@
 4、函数开头要判断是否出现自我复制，否则会在释放内存时，出现释放被复制的内存，从而找不到赋值的内容。
 ********
 ```
-CMystring &CMystring::operator=(const CMystring &str)
-{
-    std::cout << "赋值构造运算符" << std::endl;
-    if (this != &str)//注意自我赋值
-    {
-        CMystring str_temp(str);         //创建一个临时实例
-        char *p_temp = str_temp.my_data; //将临时实例的数据存入p_temp;
-        str_temp.my_data = my_data;      //将以前str_temp.mydata指向my_data的内存
-        my_data = p_temp;                //将my_data指向临时实例的内存
-    }                                    //离开区域自动调用析构函数，释放内存
-
-    return *this;
-}
+ CMystring &CMystring::operator=(const CMystring &str)
+ {
+     std::cout << "赋值构造运算符" << std::endl;
+     if (this != &str)
+     {
+         delete[] my_data;
+         my_data = new char[strlen(str.my_data) + 1];
+         strcpy(my_data, str.my_data);
+         return *this;
+     }
+     return *this;
+ }
 ```
 [拷贝赋值运算符](./cmystring.h)
