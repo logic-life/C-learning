@@ -23,4 +23,4 @@ void Test(){
 ```
 [nullandnullptr](./nullandnullptr.cpp)
 ****************
-**C语言中NULL表示(void *),空指针可以转换为任何类型的指针*
+**C语言中NULL表示(void *),空指针可以转换为任何类型的指针**
