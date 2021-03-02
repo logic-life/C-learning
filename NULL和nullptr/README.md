@@ -18,6 +18,7 @@ func(int a,int b);
 void Test(){
     func(m,NULL);//调用时会出现二义性，无法区别调用是哪个函数，使用0更能让人警觉！
     func(m,0)//调用函数二
+    func(m,static_cast<int *>(0))//调用函数一
     func(m,nullptr);//调用函数一
 }
 ```
