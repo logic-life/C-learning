@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     CMystring the_third_string;                     //默认构造函数
     CMystring the_forth_string;                     //默认构造函数
     // 使用一个实例初始化另一个实例
-    CMystring the_fifth_string(the_second_string);  //拷贝构造函数
+    CMystring the_fifth_string(the_second_string); //拷贝构造函数
     //自我赋值
     the_second_string = the_second_string;
     //连续赋值
@@ -19,4 +19,4 @@ int main(int argc, char *argv[])
     //连续赋值
     return 0;
     //离开主函数区域，调用析构函数
-} 
+}

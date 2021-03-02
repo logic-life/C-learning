@@ -22,7 +22,7 @@ CMystring::CMystring(const CMystring &str)
 {
     std::cout << "拷贝构造函数" << std::endl;
     if (this != &str)
-    {   //不允许释放未创建对象的内存
+    { //不允许释放未创建对象的内存
         //delete[] my_data;
         my_data = new char[strlen(str.my_data) + 1];
         strcpy(my_data, str.my_data);
@@ -69,7 +69,7 @@ CMystring::CMystring(/* args */)
 CMystring &CMystring::operator=(const CMystring &str)
 {
     std::cout << "赋值构造运算符" << std::endl;
-    if (this != &str)//注意自我赋值
+    if (this != &str) //注意自我赋值
     {
         CMystring str_temp(str);         //创建一个临时实例
         char *p_temp = str_temp.my_data; //将临时实例的数据存入p_temp;
