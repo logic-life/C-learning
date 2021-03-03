@@ -10,8 +10,9 @@ typedef struct Node
 class ChainTable
 {
 private:
-    /* data */
+    /* 哨兵 */
     Node *nil;
+    int chain_table_length = 0;
 
 public:
     ChainTable(/* args */);
@@ -20,6 +21,9 @@ public:
     Node *ListSearch(int data) const;
     bool ListInsert(int data);
     bool ListDelete(int data);
+    bool ChainTableToNull();
+    int ListLength(void);
+
     void ShowChainTable();
 };
 //生成一个双向链表
@@ -57,6 +61,7 @@ Node *ChainTable::ListSearch(int data) const
 //向链表中插入一个元素
 bool ChainTable::ListInsert(int data)
 {
+    chain_table_length++;
     Node *node = new Node;
     if (node == nullptr)
         return false;
@@ -73,19 +78,30 @@ bool ChainTable::ListInsert(int data)
     node->prev = nil;
     return true;
 }
-
+//删除链表中的指定元素
 bool ChainTable::ListDelete(int data)
-{
-    Node *pointer = ListSearch(data);
-    if (pointer->data == NIL)
-        return false;
-    else
+{ //判断链表是否为空
+    if (chain_table_length <= 0)
     {
-        pointer->prev->next = pointer->next;
-        pointer->next->prev = pointer->prev;
+        std::cout << "当前链表为空，无法删除！" << std::endl;
         return true;
     }
+    else
+    { //链表长度减一
+        chain_table_length--;
+        //找到待删除元素的地址
+        Node *pointer = ListSearch(data);
+        if (pointer->data == NIL)
+            return false;
+        else
+        {
+            pointer->prev->next = pointer->next;
+            pointer->next->prev = pointer->prev;
+            return true;
+        }
+    }
 }
+//打印链表中的元素
 void ChainTable::ShowChainTable()
 {
     Node *pointer = nil->next;
@@ -96,7 +112,53 @@ void ChainTable::ShowChainTable()
         pointer = pointer->next;
     }
 }
-ChainTable::~ChainTable()
+//返回链表中元素长度
+int ChainTable::ListLength(void)
 {
+    return chain_table_length;
+}
+//清空链表
+bool ChainTable::ChainTableToNull()
+{
+    if (chain_table_length == 0)
+    {
+        std::cout << "当前为空表！" << std::endl;
+    }
+    else
+    { //双指针释放内存
+        Node *p = nil->next;
+        Node *pointer = nullptr;
+        while (p != nil)
+        {
+            chain_table_length--;
+            pointer = p->next;
+            delete p;
+            p = pointer;
+        }
+        //恢复为空表
+        nil->next = nil;
+        nil->prev = nil;
+    }
+
+    return true;
+}
+//析构函数
+ChainTable::~ChainTable()
+{ //链表为空直接删除哨兵
+    if (chain_table_length == 0)
+    {
+        delete nil;
+        return;
+    }
+    //双指针释放内存
+    Node *p = nil->next;
+    Node *pointer = nullptr;
+    while (p != nil)
+    {
+        pointer = p->next;
+        delete p;
+        p = pointer;
+    }
+    //释放哨兵内存
     delete nil;
 }
