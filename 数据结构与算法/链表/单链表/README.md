@@ -1,5 +1,4 @@
 # 单链表的两种创建方式
-[单链表的创建](./listnode_bypoint.hpp)
 **函数形参为什么要使用指向指针的指针，或者指针引用？**
 ```
 //如果函数体形参调用是值传递，那么对应头节点的指针传递进去，被复制一份copy后，此后所有的修改都是在copy中进行的，
@@ -23,3 +22,5 @@ void addTotail(ListNode *&p_head, int value)
 
 ```
 ************
+
+[单链表的创建](./listnode_bypoint.hpp)
