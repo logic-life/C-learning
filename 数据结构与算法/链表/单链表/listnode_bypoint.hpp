@@ -5,6 +5,9 @@ struct ListNode
 {
     int value;
     ListNode *next;
+    ListNode():value(0),next(nullptr){}
+    ListNode(int x):value(x),next(nullptr){}
+    ListNode(int x ListNode *next) : value(x), next(next) {}
 };
 
 void addTotail(ListNode **p_head, int value)
@@ -60,4 +63,6 @@ void ListPrintf(ListNode **p_head)
         std::cout << p_node->value << " ";
     std::cout << std::endl;
 }
+
+
 #endif //_LISTNODE_BYREFERENCE_HPP_

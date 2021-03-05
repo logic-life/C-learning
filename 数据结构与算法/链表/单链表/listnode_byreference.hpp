@@ -1,17 +1,19 @@
 #ifdef _LISTNODE_BYPOINTER_HPP_
 #include <iostream>
-
+#include <cmath>
 struct ListNode
 {
     int value;
     ListNode *next;
+    ListNode() : value(0), next(nullptr) {}
+    ListNode(int x) : value(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : value(x), next(next) {}
 };
 //添加节点
 void addTotail(ListNode *&p_head, int value)
 { //申请一个节点内存
-    ListNode *new_node = new ListNode();
+    ListNode *new_node = new ListNode(value);
     new_node->next = nullptr;
-    new_node->value = value;
     //如果没有头结点就创建一个
     if (p_head == nullptr)
         p_head = new_node;
@@ -60,8 +62,31 @@ void ListPrintf(ListNode *&p_head)
 {
     ListNode *p_node = p_head;
     std::cout << "打印链表：" << std::endl;
-    for (; p_node->next != nullptr; p_node = p_node->next)
+    for (; p_node != nullptr; p_node = p_node->next)
         std::cout << p_node->value << " ";
     std::cout << std::endl;
+}
+
+ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+{
+    ListNode *p_head = new ListNode(-1), *node = p_head;
+    int carry_data = 0;
+    while (l1 != nullptr || l2 != nullptr || carry_data != 0)
+    {
+        if (l1 != nullptr)
+        {
+            carry_data += l1->value;
+            l1 = l1->next;
+        }
+        if (l2 != nullptr)
+        {
+            carry_data += l2->value;
+            l2 = l2->next;
+        }
+        node->next = new ListNode(carry_data % 10);
+        node = node->next;
+        carry_data /= 10;
+    }
+    return p_head->next;
 }
 #endif // _LISTNODE_BYPOINTER_HPP_
