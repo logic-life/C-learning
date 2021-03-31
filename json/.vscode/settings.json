@@ -1,0 +1,9 @@
+{
+    "leek-fund.flash-news": true,
+    "editor.formatOnPaste": true,
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "random": "cpp"
+    }
+}

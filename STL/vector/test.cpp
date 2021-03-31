@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     // void insert(iterator loc, size_type num, const TYPE &val);
     // void insert(iterator loc, input_iterator start, input_iterator end);
     // 三种使用方法insert()
-    i_v.insert(i_v.end(), 8);
+    i_v.insert(i_v.end(), 8); 
     //逆序迭代器，从队尾输出到队头
     for (auto i = i_v.rbegin(); i != i_v.rend(); i++)
         cout << *i << " ";
